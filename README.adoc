@@ -1,0 +1,38 @@
+== i3ipc
+
+A Nim client library for the https://i3wm.org[i3] https://i3wm.org/docs/ipc.html[IPC] interface
+
+Can be used in sync or async applications.
+
+=== Installation
+
+[source,bash]
+----
+nimble install i3ipc
+----
+
+=== Usage
+
+Refer to the i3 documentation on how to use the interface.
+
+Run "nim doc2" to generate docs for the library.
+
+Usage example:
+
+[source,nim]
+----
+import i3ipc
+
+let i3 = newI3Conn()
+echo "version:", i3.get_version()
+echo "focused window: ", i3.get_tree().get_focused_window()
+echo "outputs: ", i3.get_outputs()
+echo "workspaces: ", i3.get_workspaces()
+
+# Subscribe to window notifications:
+i3.subscribe(I3Event.window)
+
+i3.close()
+----
+
+See the functional tests for more examples.
