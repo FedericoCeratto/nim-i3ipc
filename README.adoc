@@ -1,5 +1,9 @@
 == i3ipc
 
+image:https://img.shields.io/badge/status-alpha-orange.svg[badge]
+image:https://img.shields.io/badge/version-0.1.0-orange.svg[badge]
+image:https://img.shields.io/badge/License-LGPL%20v3-blue.svg[badge]
+
 A Nim client library for the https://i3wm.org[i3] https://i3wm.org/docs/ipc.html[IPC] interface
 
 Can be used in sync or async applications.
