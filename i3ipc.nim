@@ -158,6 +158,10 @@ proc get_version*(self: I3Conn | AsyncI3Conn): Future[JsonNode] {.multisync.} =
   ## Get version
   return await self.send_recv(I3MessageType.get_version, "")
 
+proc send_command*(self: I3Conn | AsyncI3Conn, cmd: string): Future[JsonNode] {.multisync.} =
+  ## Send command
+  return await self.send_recv(I3MessageType.command, cmd)
+
 proc subscribe*(self: I3Conn | AsyncI3Conn, event: I3Event) {.multisync.} =
   ## Subscribe to notifications
   let selector = """["$#"]""" % $event
